@@ -1,8 +1,9 @@
-package less4;
-
+package less4.Service;
 import java.util.List;
 
-public class TeacherService {
+import less4.Model.Teacher;
+
+public class TeacherService implements UserService<Teacher>{
 
     private List<Teacher> teacherList;
     private Integer maxTeacherId = 0;
@@ -18,16 +19,17 @@ public class TeacherService {
     }
 
     @Override
-    public void create(String surname, String firstname, String patronymic) {
-        Teacher teacher = new Teacher(++maxTeacherId,surname,firstname,patronymic);
+    public void create(String name, String lastname) {
+        Teacher teacher = new Teacher(++maxTeacherId,name,lastname);
         teacherList.add(teacher);
     }
-    public void editTeacher(Integer teacherId, String surname,String firstname, String patronymic){
+
+    public void edit(Integer teacherId, String name,String lastname){
         for (Teacher teacher: teacherList) {
             if (teacher.getTeacherId().equals(teacherId)){
-                teacher.setSurname(surname);
-                teacher.setFirstname(firstname);
-                teacher.setPatronymic(patronymic);
+                teacher.setname(name);
+                teacher.setLastname(lastname);
+                
             }
         }
     }

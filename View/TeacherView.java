@@ -1,8 +1,10 @@
-package less4;
+package less4.View;
 
 import java.util.List;
 
-public class TeacherView {
+import less4.Model.Teacher;
+
+public class TeacherView implements UserView<Teacher>{
     @Override
     public void sendOnConsole(List<Teacher> list) {
         for (Teacher teacher : list) {
@@ -10,3 +12,5 @@ public class TeacherView {
         }
     }
 }
+
+
